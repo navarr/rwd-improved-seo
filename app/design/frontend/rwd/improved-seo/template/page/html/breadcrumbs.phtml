@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @author Navarr Barnier <me@navarr.me>
+ * @license MIT
+ */
+
+if (empty($crumbs) || !is_array($crumbs)) {
+    return;
+}
+
+$_crumbItems = array();
+$_crumbCount = 1;
+$_crumbTotal = count($crumbs);
+
+foreach ($crumbs as $_crumbName => $_crumbInfo) {
+$_thisCrumb = "crumb-{$_crumbCount}";
+$_nextCrumbNum = $_crumbCount+1;
+$_nextCrumb = "crumb-{$_nextCrumbNum}";
+$_itemChild = $_crumbCount == 1 ? '' : 'itemprop="child"';
+$_nextRef = $_crumbInfo['last'] ? '' : "itemref=\"{$_nextCrumb}\"";
+
+$_li = "<li id=\"{$_thisCrumb}\" itemscope itemtype=\"http://data-vocabulary.org/Breadcrumb\" {$_itemChild} {$_nextRef}>";
+    $_a = '<a href="'.$_crumbInfo['link'].'" itemprop="url">';
+        $_span = '<span itemprop="title" title="'.$_crumbInfo['title'].'">';
+
+    $_crumbItemParts = array(
+        $_li,
+        $_a,
+        $_span,
+        $this->escapeHtml($_crumbInfo['label']),
+        '</span>',
+        '</a>',
+    ($_crumbInfo['last'] ? '' : '<span>/ </span>'),
+    '</li>'
+);
+
+$_crumbItems[] = implode('', $_crumbItemParts);
+
+++$_crumbCount;
+}
+?>
+<div class="breadcrumbs">
+    <ul>
+        <?php echo implode('', $_crumbItems); ?>
+    </ul>
+</div>
