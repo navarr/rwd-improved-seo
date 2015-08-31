@@ -1,6 +1,13 @@
 # RWD Extension with Schema.org SEO
 
-This 
+This Magento theme expands upon the default RWD theme to provide some improved SEO via Schema.org attributes on the following items:
+
+* Products
+* Prices
+* Reviews
+* Breadcrumbs
+
+These attributes will provide additional information to Google and other SERPs, allowing additional relevant context to be displayed to the consumer.
 
 ## Credits
 
