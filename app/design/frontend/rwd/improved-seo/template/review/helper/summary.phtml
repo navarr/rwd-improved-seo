@@ -27,7 +27,8 @@
 <?php if ($this->getReviewsCount()): ?>
     <div class="ratings" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
         <meta itemprop="reviewCount" content="<?php echo $this->getReviewsCount(); ?>" />
-        <meta itemprop="bestRating" content="100"/> <meta itemprop="worstRating" content="0"/>
+        <meta itemprop="bestRating" content="100"/>
+        <meta itemprop="worstRating" content="0"/>
         <?php if ($this->getRatingSummary()):?>
             <meta itemprop="ratingValue" content="<?php echo $this->getRatingSummary(); ?>"/>
             <div class="rating-box">
